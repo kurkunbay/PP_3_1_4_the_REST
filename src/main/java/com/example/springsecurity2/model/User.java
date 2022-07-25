@@ -22,11 +22,22 @@ public class User implements UserDetails {
     @Column(name = "password")
     private String password;
 
+    @Column(name = "first_Name")
+    private String firstName;
 
-    public User(Long id, String username, String password, Set<Role> roles) {
+    @Column(name = "last_Name")
+    private String lastName;
+
+    @Column(name = "age")
+    private int age;
+
+    public User(Long id, String username, String password, String firstName, String lastName, int age, Set<Role> roles) {
         this.id = id;
         this.username = username;
         this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
         this.roles = roles;
     }
 
@@ -51,6 +62,30 @@ public class User implements UserDetails {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 
     public String getUsername() {
