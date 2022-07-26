@@ -20,23 +20,23 @@
         <table border="1">
             <thead>
             <tr>
-                <th>Id</th>
-                <th>username</th>
-                <th>password</th>
-                <th>First Name</th>
-                <th>Last Name</th>
+                <th>ID</th>
+                <th>First name</th>
+                <th>Last name</th>
                 <th>Age</th>
-                <th>Role</th>
+                <th>E-mail</th>
+                <th>ROLE</th>
+                <th>Edit</th>
+                <th>Delete</th>
             </tr>
             </thead>
             <tbody>
             <tr th:each="user : ${users}">
                 <td th:text="${user.id}"></td>
-                <td th:text="${user.username}"></td>
-                <td th:text="${user.password}"></td>
                 <td th:text="${user.firstName}"></td>
                 <td th:text="${user.lastName}"></td>
                 <td th:text="${user.age}"></td>
+                <td th:text="${user.username}"></td>
                 <td>
                     <th:block th:each="role : ${user.getRoles()}">
                         <span th:attr="data-role=${role.getName()}" th:text="${role.getName()}"></span>

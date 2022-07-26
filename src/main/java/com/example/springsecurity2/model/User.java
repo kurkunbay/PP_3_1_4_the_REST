@@ -16,8 +16,8 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "username", nullable = false, unique = true)
-    private String username;
+    @Column(name = "email", nullable = false, unique = true)
+    private String email;
 
     @Column(name = "password")
     private String password;
@@ -31,9 +31,9 @@ public class User implements UserDetails {
     @Column(name = "age")
     private int age;
 
-    public User(Long id, String username, String password, String firstName, String lastName, int age, Set<Role> roles) {
+    public User(Long id, String email, String password, String firstName, String lastName, int age, Set<Role> roles) {
         this.id = id;
-        this.username = username;
+        this.email = email;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -89,11 +89,11 @@ public class User implements UserDetails {
     }
 
     public String getUsername() {
-        return username;
+        return email;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
