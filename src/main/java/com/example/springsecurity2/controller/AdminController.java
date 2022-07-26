@@ -7,6 +7,7 @@ import com.example.springsecurity2.service.RoleService;
 import com.example.springsecurity2.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,6 +31,14 @@ public class AdminController {
         this.roleService = roleService;
     }
 
+//    @GetMapping()
+//    public String findAll(@AuthenticationPrincipal org.springframework.security.core.userdetails.User userAuth, Model model) {
+//        model.addAttribute("userAuth", userService.findByEmail(userAuth.getUsername()).orElseThrow());
+//        List<User> userList = userService.getAllUsers();
+//        model.addAttribute("userList", userList);
+//        model.addAttribute("rolesList", userService.getAllRoles());
+//        model.addAttribute("newUser", new User());
+//        return "user-list";
     @GetMapping()
     public String findAll(Model model) {
         List<User> users = userService.findAll();
