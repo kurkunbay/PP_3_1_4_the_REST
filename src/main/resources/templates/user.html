@@ -12,17 +12,21 @@
 <table border="1">
     <thead>
     <tr>
-        <th>Id</th>
-        <th>username</th>
-        <th>password</th>
-        <th>Role</th>
+        <th>ID</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Age</th>
+        <th>E-mail</th>
+        <th>ROLE</th>
     </tr>
     </thead>
     <tbody>
     <tr>
         <th th:text="${userAuth.id}" scope="row"></th>
-        <td th:text="${userAuth.username}"></td>
-        <td th:text="${userAuth.password}"></td>
+        <th th:text="${userAuth.firstName}"></th>
+        <th th:text="${userAuth.lastName}"></th>
+        <th th:text="${userAuth.age}"></th>
+        <td th:text="${userAuth.email}"></td>
         <td th:text="${userAuth.roles}"></td>
     </tr>
     </tbody>
