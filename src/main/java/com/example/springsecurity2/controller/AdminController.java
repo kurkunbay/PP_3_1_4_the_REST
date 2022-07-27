@@ -25,20 +25,11 @@ public class AdminController {
     private final UserService userService;
     private final RoleService roleService;
 
-    @Autowired
     public AdminController(UserService userService, RoleService roleService) {
         this.userService = userService;
         this.roleService = roleService;
     }
 
-//    @GetMapping()
-//    public String findAll(@AuthenticationPrincipal org.springframework.security.core.userdetails.User userAuth, Model model) {
-//        model.addAttribute("userAuth", userService.findByEmail(userAuth.getUsername()).orElseThrow());
-//        List<User> userList = userService.getAllUsers();
-//        model.addAttribute("userList", userList);
-//        model.addAttribute("rolesList", userService.getAllRoles());
-//        model.addAttribute("newUser", new User());
-//        return "user-list";
     @GetMapping()
     public String findAll(Model model) {
         List<User> users = userService.findAll();
