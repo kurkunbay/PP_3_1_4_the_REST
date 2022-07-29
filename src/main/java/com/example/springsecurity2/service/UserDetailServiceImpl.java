@@ -1,7 +1,6 @@
 package com.example.springsecurity2.service;
 
 import com.example.springsecurity2.model.User;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

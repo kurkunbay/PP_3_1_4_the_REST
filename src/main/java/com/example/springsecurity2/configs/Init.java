@@ -2,7 +2,6 @@ package com.example.springsecurity2.configs;
 
 import com.example.springsecurity2.model.Role;
 import com.example.springsecurity2.model.User;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,7 +15,6 @@ import java.util.Collections;
 public class Init {
     private final EntityManagerFactory entityManagerFactory;
 
-    @Autowired
     public Init(EntityManagerFactory entityManagerFactory) {
         this.entityManagerFactory = entityManagerFactory;
     }
