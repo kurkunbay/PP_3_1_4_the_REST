@@ -1,7 +1,5 @@
 package com.example.springsecurity2.configs;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -17,13 +15,15 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-    private final SuccessUserHandler successUserHandler;
     private final UserDetailsService userDetailsService;
+    private final SuccessUserHandler successUserHandler;
 
-    public WebSecurityConfig(SuccessUserHandler successUserHandler, @Qualifier("userDetailsServiceImpl")
-    UserDetailsService userDetailsService) {
-        this.successUserHandler = successUserHandler;
+
+    public WebSecurityConfig(UserDetailsService userDetailsService,
+                             SuccessUserHandler successUserHandler) {
         this.userDetailsService = userDetailsService;
+        this.successUserHandler = successUserHandler;
+
     }
 
     @Override

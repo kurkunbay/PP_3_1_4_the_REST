@@ -23,31 +23,42 @@ public class Init {
     @Transactional
     public void postConstruct() {
         User admin = new User();
-        admin.setEmail("admin");
+        admin.setEmail("admin@admin.com");
+        admin.setFirstname("Vasya");
+        admin.setLastname("Ivanov");
+        admin.setAge(24);
         admin.setPassword("$2a$12$sn9KvEVkIANLssoCvEnh0.XqIxsE3BwaLt5qSltxaOj11eQoLCj8i"); //Password: user
-        admin.setFirstName("Ivan");
-        admin.setLastName("Ivanov");
-        admin.setAge(26);
 
         User user = new User();
-        user.setEmail("user");
+        user.setEmail("user@user.com");
+        user.setFirstname("Petya");
+        user.setLastname("Sidorov");
+        user.setAge(13);
         user.setPassword("$2a$12$sn9KvEVkIANLssoCvEnh0.XqIxsE3BwaLt5qSltxaOj11eQoLCj8i"); //Password: user
-        user.setFirstName("Petr");
-        user.setLastName("Petrov");
-        user.setAge(20);
+
+        User user2 = new User();
+        user2.setEmail("user2@user2.com");
+        user2.setFirstname("Pasha");
+        user2.setLastname("Petrov");
+        user2.setAge(35);
+        user2.setPassword("$2a$12$sn9KvEVkIANLssoCvEnh0.XqIxsE3BwaLt5qSltxaOj11eQoLCj8i"); //Password: user
 
         Role role = new Role();
-        role.setName("ROLE_ADMIN");
+        role.setRole("ROLE_ADMIN");
         Role role2 = new Role();
-        role2.setName("ROLE_USER");
+        role2.setRole("ROLE_USER");
 
         admin.setRoles(Collections.singleton(role));
         user.setRoles(Collections.singleton(role2));
+        user2.setRoles(Collections.singleton(role2));
 
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         entityManager.getTransaction().begin();
-        entityManager.persist(user);
+
         entityManager.persist(admin);
+        entityManager.persist(user);
+        entityManager.persist(user2);
+
         entityManager.persist(role);
         entityManager.persist(role2);
         entityManager.getTransaction().commit();
