@@ -26,11 +26,12 @@
             <div class="col-sm-8">
                 <a th:text="${user.getEmail()}" class="fw-bolder text-white bg-dark  font-weight-bold"></a>
                 <span class="text-start">with roles:
-                    <a th:each="role : ${user.getRoles()}"><span th:attr="data-role=${role.getRole()}" th:text="${role.getRole()}"></span></a>
+                    <a th:each="role : ${user.getRoles()}"><span th:attr="data-role=${role.getRole()}"
+                                                                 th:text="${role.getRole()}"></span></a>
                 </span>
             </div>
             <div class="col-sm-4">
-                <form action="/logout" method="post">
+                <form th:action="@{/logout}" method="post">
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                         <button class="text-muted btn btn-dark" type="submit">Logout</button>
                     </div>

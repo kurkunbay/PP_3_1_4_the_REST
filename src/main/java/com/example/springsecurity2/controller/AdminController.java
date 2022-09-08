@@ -36,7 +36,10 @@ public class AdminController {
     }
 
     @GetMapping("/all-users")
-    public String showAllUsers(Model model) {
+    public String showAllUsers(Principal principal, Model model) {
+        String email = principal.getName();
+        User user = userService.getUserByEmail(email);
+        model.addAttribute("user", user);
         List<User> allUsers = userService.getAllUsers();
         model.addAttribute("allUsers", allUsers);
         return "all-users";
