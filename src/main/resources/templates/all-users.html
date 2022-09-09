@@ -78,14 +78,13 @@
                             <div class="card">
                                 <h5 class="card-header">All users</h5>
                                 <div class="card-body">
-                                    <table border="1" style="width:500px">
+                                    <table class="table table-striped">
                                         <tr>
-                                            <th>FirstName</th>
-                                            <th>Lastname</th>
+                                            <th>First Name</th>
+                                            <th>Last Name</th>
                                             <th>Age</th>
-                                            <th>Email</th>
-                                            <th>Password</th>
-                                            <th>Roles</th>
+                                            <th>E-mail</th>
+                                            <th>ROLE</th>
                                             <th>Edit</th>
                                             <th>Delete</th>
                                         </tr>
@@ -95,7 +94,6 @@
                                             <td th:utext="${user.lastname}">Lastname</td>
                                             <td th:utext="${user.age}">age</td>
                                             <td th:utext="${user.email}">email</td>
-                                            <td th:utext="${user.password}">password</td>
                                             <td>
                                                 <th:block th:each="role : ${user.getRoles()}">
                                                     <span th:attr="data-role=${role.getRole()}" th:text="${role.getRole()}"></span>
