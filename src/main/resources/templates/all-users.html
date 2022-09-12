@@ -330,17 +330,35 @@
                                                        placeholder="Введите пароль">
                                             </div>
 
-<!--                                                                        Роль не отображается, тут ошибка-->
-                                            <select multiple size="4" name="rolesNames" th:required="true">
-                                                <option value=""> - Select role -</option>
-                                                <option
-                                                        th:each="role : ${rolesNames}"
-                                                        th:value="${role.role}"
-                                                        th:text="${role.role}"
-                                                        th:selected="${#lists.contains(user.roles, role)}">
-                                                </option>
-                                            </select>
-<!--                                                                        Роль не отображается, тут ошибка-->
+                                            <div class="d-flex flex-column align-items-center mb-3">
+                                                <label class="font-weight-bold"><b>Roles: </b></label>
+
+                                                <select class="form-control col-md-3"
+                                                        multiple
+                                                        size="3"
+                                                        name="rolesNames" th:required="true">
+                                                    <option
+                                                            th:each="role : ${rolesNames}"
+                                                            th:value="${role.role}"
+                                                            th:text="${role.role}"
+                                                            th:selected="${#lists.contains(user.roles, role)}">
+                                                    </option>
+                                                </select>
+                                            </div>
+
+
+
+<!--                                                                        Старый способ-->
+<!--                                            <select multiple size="4" name="rolesNames" th:required="true">-->
+<!--                                                <option value=""> - Select role -</option>-->
+<!--                                                <option-->
+<!--                                                        th:each="role : ${rolesNames}"-->
+<!--                                                        th:value="${role.role}"-->
+<!--                                                        th:text="${role.role}"-->
+<!--                                                        th:selected="${#lists.contains(user.roles, role)}">-->
+<!--                                                </option>-->
+<!--                                            </select>-->
+<!--                                                                        Старый способ-->
 
                                             <div class="form-group">
                                                 <button type="submit" class="btn btn-success">Add new user</button>
