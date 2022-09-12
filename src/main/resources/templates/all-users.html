@@ -331,19 +331,15 @@
                                             </div>
 
 <!--                                                                        Роль не отображается, тут ошибка-->
-                                            <div class="d-flex flex-column align-items-center mb-3">
-                                                <label for="role" class="font-weight-bold">Role</label>
-
-                                                <label for="role"></label>
-                                                <select th:field="*{roles}" size="2" multiple
-                                                                                  class="form-control col-md-3"
-                                                                                  id="role">
-                                                <option th:each="role : ${rolesList}"
-                                                        th:text="${role.getRolesUser()}"
-                                                        th:value="${role.getId()}">
+                                            <select multiple size="4" name="rolesNames" th:required="true">
+                                                <option value=""> - Select role -</option>
+                                                <option
+                                                        th:each="role : ${rolesNames}"
+                                                        th:value="${role.role}"
+                                                        th:text="${role.role}"
+                                                        th:selected="${#lists.contains(user.roles, role)}">
                                                 </option>
                                             </select>
-                                            </div>
 <!--                                                                        Роль не отображается, тут ошибка-->
 
                                             <div class="form-group">

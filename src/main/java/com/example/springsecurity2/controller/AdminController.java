@@ -42,14 +42,16 @@ public class AdminController {
         model.addAttribute("user", user);
         List<User> allUsers = userService.getAllUsers();
         model.addAttribute("allUsers", allUsers);
-        return "all-users";
-    }
-    @GetMapping("/addNewUser")
-    public String addNewUser(Model model) {
         model.addAttribute("user", new User());
         model.addAttribute("rolesNames", roleService.getAllRoles());
-        return "user-info";
+        return "all-users";
     }
+//    @GetMapping("/addNewUser")
+//    public String addNewUser(Model model) {
+//        model.addAttribute("user", new User());
+//        model.addAttribute("rolesNames", roleService.getAllRoles());
+//        return "user-info";
+//    }
 
     @GetMapping("/saveUser")
     public String saveUser(@ModelAttribute("user") User user, @RequestParam(value = "rolesNames") String[] roles) {
