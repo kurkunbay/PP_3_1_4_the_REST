@@ -132,17 +132,36 @@
 
                                                                     <form th:action="@{/admin/saveUser}" th:object="${user}">
 
-                                                                        <input type="hidden" th:field="*{id}"/>
-                                                                        FirstName <input type="text" th:field="*{firstname}"/>
-                                                                        <br><br>
-                                                                        Lastname <input type="text" th:field="*{lastname}"/>
-                                                                        <br><br>
-                                                                        Age <input type="text" th:field="*{age}"/>
-                                                                        <br><br>
-                                                                        Email <input type="text" th:field="*{email}"/>
-                                                                        <br><br>
-                                                                        Password <input type="text" name="password"/>
-                                                                        <br><br>
+                                                                        <div class="form-group">
+                                                                            <label for="id"><b>ID</b></label>
+                                                                            <input type="text" class="form-control"
+                                                                                   id="id" th:field="*{id}"/>
+                                                                        </div>
+
+                                                                        <div class="form-group">
+                                                                            <label for="firstName1"><b>First Name</b></label>
+                                                                            <input type="text" class="form-control" id="firstName1" th:field="*{firstname}"/>
+                                                                        </div>
+
+                                                                        <div class="form-group">
+                                                                            <label for="lastName1"><b>Last Name</b></label>
+                                                                            <input type="text" class="form-control" id="lastName1" th:field="*{lastname}"/>
+                                                                        </div>
+
+                                                                        <div class="form-group">
+                                                                            <label for="age1"><b>Age</b></label>
+                                                                            <input type="number" class="form-control" id="age1" th:field="*{age}"/>
+                                                                        </div>
+
+                                                                        <div class="form-group">
+                                                                            <label for="email1"><b>E-mail</b></label>
+                                                                            <input type="text" class="form-control" id="email1" th:field="*{email}"/>
+                                                                        </div>
+
+                                                                        <div class="form-group">
+                                                                            <label for="password1"><b>Password</b></label>
+                                                                            <input type="text" class="form-control" id="password1" th:field="*{password}"/>
+                                                                        </div>
 
                                                                         <select multiple size="4" name="rolesNames" th:required="true">
                                                                             <option value=""> - Select role -</option>
