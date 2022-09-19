@@ -20,7 +20,6 @@ public class Init {
     }
 
     @PostConstruct
-    @Transactional
     public void postConstruct() {
         User admin = new User();
         admin.setEmail("admin@admin.com");
