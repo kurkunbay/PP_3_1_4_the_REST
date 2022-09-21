@@ -1,17 +1,14 @@
 package com.example.springsecurity2.DAO;
 
 import com.example.springsecurity2.model.Role;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Set;
 
-public interface RoleDAO {
-    List<Role> getAllRoles();
-
-    void saveRole(Role role);
-
-    void deleteRoleById(Long id);
-
-    Role getRoleById(Long id);
-
-    Role getByRoleName(String roleName);
+@Repository
+public interface RoleDAO extends JpaRepository<Role, Long> {
+    Role findRolesByName (String name);
+    Set<Role> findRolesByNameIn(List<String> names);
 }
