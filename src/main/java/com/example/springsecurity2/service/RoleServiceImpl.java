@@ -6,8 +6,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
-import java.util.Set;
 
 @Service
 public class RoleServiceImpl implements RoleService {
@@ -18,38 +16,31 @@ public class RoleServiceImpl implements RoleService {
         this.roleDAO = roleDAO;
     }
 
-    @Transactional
+
     @Override
-    public void save(Role role) {
-        roleDAO.save(role);
+    public List<Role> getAllRoles() {
+        return roleDAO.getAllRoles();
     }
 
-    @Transactional
     @Override
-    public Role findById(Long id) {
-        Role role = null;
-        Optional<Role> optional = roleDAO.findById(id);
-        if (optional.isPresent()) {
-            role = optional.get();
-        }
-        return role;
+    @Transactional
+    public void saveRole(Role role) {
+        roleDAO.saveRole(role);
     }
 
-    @Transactional
     @Override
-    public Role findByName(String name) {
-        return roleDAO.findRolesByName(name);
+    @Transactional
+    public void deleteRoleById(Long id) {
+        roleDAO.deleteRoleById(id);
     }
 
-    @Transactional
     @Override
-    public List<Role> findAllRoles() {
-        return roleDAO.findAll();
+    public Role getRoleById(Long id) {
+        return roleDAO.getRoleById(id);
     }
 
-    @Transactional
     @Override
-    public Set<Role> findRolesSetByName(List<String> names) {
-        return roleDAO.findRolesByNameIn(names);
+    public Role getByRoleName(String roleName) {
+        return roleDAO.getByRoleName(roleName);
     }
 }

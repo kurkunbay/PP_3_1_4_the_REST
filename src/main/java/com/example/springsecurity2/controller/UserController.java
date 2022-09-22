@@ -2,7 +2,6 @@ package com.example.springsecurity2.controller;
 
 import com.example.springsecurity2.model.User;
 import com.example.springsecurity2.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

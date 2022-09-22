@@ -3,16 +3,15 @@ package com.example.springsecurity2.service;
 import com.example.springsecurity2.model.Role;
 
 import java.util.List;
-import java.util.Set;
 
 public interface RoleService {
-    void save(Role role);
+    List<Role> getAllRoles();
 
-    Role findById(Long id);
+    void saveRole(Role role);
 
-    Role findByName(String name);
+    void deleteRoleById(Long id);
 
-    Set<Role> findRolesSetByName(List<String> names);
+    Role getRoleById(Long id);
 
-    List<Role> findAllRoles();
+    Role getByRoleName(String roleName);
 }
