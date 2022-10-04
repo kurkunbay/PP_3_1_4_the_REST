@@ -1,5 +1,6 @@
 package com.example.springsecurity2.model;
 
+import com.example.springsecurity2.dto.UserSimpleDto;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -43,6 +44,13 @@ public class User implements UserDetails {
     private Set<Role> roles = new HashSet<>();
 
     public User() {
+    }
+    public User(UserSimpleDto dto) {
+        this.firstname = dto.getFirstname();
+        this.lastname = dto.getLastname();
+        this.age = dto.getAge();
+        this.email = dto.getUsername();
+        this.password = dto.getPassword();
     }
 
     public User(String firstname, String lastname, int age, String email, String password, Set<Role> roles) {
